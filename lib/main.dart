@@ -3,18 +3,20 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'core/services/get_it_service.dart';
 import 'firebase_options.dart';
 
 import 'features/splash/presentation/views/splash_view.dart';
 import 'core/helper_functions/on_generate_routes.dart';
- import 'generated/l10n.dart';
+import 'generated/l10n.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
- await Prefs.init();
+  setupGetIt();
+  await Prefs.init();
   runApp(const FruitHub());
 }
 

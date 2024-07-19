@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758608530381",
+    "project_id": "fruit-hub-aadc8",
+    "storage_bucket": "fruit-hub-aadc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758608530381:android:1b9bf21b17b45730fdd284",
+        "android_client_info": {
+          "package_name": "com.example.fruit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRoyu5Jd1BYNEqpdYO02-YUK3VwJWu7B8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
 import 'package:fruit/core/widgets/custom_button.dart';
+import 'package:fruit/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:fruit/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:fruit/features/auth/presentation/widgets/have_an_account_widget.dart';
 import 'package:fruit/features/auth/presentation/widgets/terms_and_conditions.dart';
@@ -19,6 +21,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
   late String email, userName, password;
   late bool isTermsAccepted = false;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,22 +36,31 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 24,
               ),
               CustomTextFormField(
-                  // onSaved: (value) {
-                  //   userName = value!;
-                  // },
-                  hintText: 'الاسم كامل',
-                  textInputType: TextInputType.name),
+                onSaved: (value) {
+                  userName = value!;
+                },
+                hintText: 'الاسم كامل',
+                textInputType: TextInputType.name,
+              ),
               const SizedBox(
                 height: 16,
               ),
               CustomTextFormField(
-                  // onSaved: (value) {
-                  //   email = value!;
-                  // },
-                  hintText: 'البريد الإلكتروني',
-                  textInputType: TextInputType.emailAddress),
+                onSaved: (value) {
+                  email = value!;
+                },
+                hintText: 'البريد الإلكتروني',
+                textInputType: TextInputType.emailAddress,
+              ),
               const SizedBox(
                 height: 16,
+              ),
+              CustomTextFormField(
+                onSaved: (value) {
+                  password = value!;
+                },
+                hintText: 'كلمة المرور',
+                textInputType: TextInputType.visiblePassword,
               ),
               // PasswordField(
               //   onSaved: (value) {
@@ -70,18 +82,20 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    // if (isTermsAccepted) {
-                    //   context
-                    //       .read<SignupCubit>()
-                    //       .createUserWithEmailAndPassword(
-                    //     email,
-                    //     password,
-                    //     userName,
-                    //   );
-                    // } else {
-                    //   buildErrorBar(
-                    //       context, 'يجب عليك الموافقة على الشروط والإحكام');
-                    // }
+                    if (isTermsAccepted) {
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithEmailAndPassword(
+                            email: email,
+                            password: password,
+                            name: userName,
+                          );
+                    } else {
+                      // buildErrorBar(
+                      //   context,
+                      //   'يجب عليك الموافقة على الشروط والإحكام',
+                      // );
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
