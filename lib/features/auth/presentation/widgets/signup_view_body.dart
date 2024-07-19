@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
+import 'package:fruit/core/helper_functions/build_error_bar.dart';
 import 'package:fruit/core/widgets/custom_button.dart';
+import 'package:fruit/core/widgets/password_field.dart';
 import 'package:fruit/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:fruit/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:fruit/features/auth/presentation/widgets/have_an_account_widget.dart';
@@ -55,18 +57,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                hintText: 'كلمة المرور',
-                textInputType: TextInputType.visiblePassword,
               ),
-              // PasswordField(
-              //   onSaved: (value) {
-              //     password = value!;
-              //   },
-              // ),
               const SizedBox(
                 height: 16,
               ),
@@ -91,10 +86,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                             name: userName,
                           );
                     } else {
-                      // buildErrorBar(
-                      //   context,
-                      //   'يجب عليك الموافقة على الشروط والإحكام',
-                      // );
+                      buildErrorBar(
+                        context,
+                        'يجب عليك الموافقة على الشروط والإحكام',
+                      );
                     }
                   } else {
                     setState(() {
@@ -115,3 +110,4 @@ class _SignupViewBodyState extends State<SignupViewBody> {
     );
   }
 }
+
