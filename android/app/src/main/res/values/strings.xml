@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fruit</string>
+    <string name="facebook_app_id">456348710516861</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">972fdcfd88f6b0e2bf291250b63ba13f</string>
+
+</resources>

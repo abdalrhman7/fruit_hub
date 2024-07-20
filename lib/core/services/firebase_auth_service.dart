@@ -1,21 +1,18 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 import 'dart:math' as math;
-
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:fruit/core/errors/exceptions.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FirebaseAuthService {
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
       final credential =
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -75,7 +72,7 @@ class FirebaseAuthService {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     final GoogleSignInAuthentication? googleAuth =
-    await googleUser?.authentication;
+        await googleUser?.authentication;
 
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
@@ -83,6 +80,17 @@ class FirebaseAuthService {
     );
 
     return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
+  }
+
+  Future<User> signInWithFacebook() async {
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    return (await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential))
+        .user!;
   }
 
   // Future<User> signInWithFacebook() async {
@@ -138,30 +146,30 @@ class FirebaseAuthService {
     return digest.toString();
   }
 
-  // Future<User> signInWithApple() async {
-  //   // To prevent replay attacks with the credential returned from Apple, we
-  //   // include a nonce in the credential request. When signing in with
-  //   // Firebase, the nonce in the id token returned by Apple, is expected to
-  //   // match the sha256 hash of `rawNonce`.
-  //   final rawNonce = generateNonce();
-  //   final nonce = sha256ofString(rawNonce);
-  //
-  //   // Request credential for the currently signed in Apple account.
-  //   final appleCredential = await SignInWithApple.getAppleIDCredential(
-  //     scopes: [
-  //       AppleIDAuthorizationScopes.email,
-  //       AppleIDAuthorizationScopes.fullName,
-  //     ],
-  //     nonce: nonce,
-  //   );
-  //
-  //   // Create an `OAuthCredential` from the credential returned by Apple.
-  //   final oauthCredential = OAuthProvider("apple.com").credential(
-  //     idToken: appleCredential.identityToken,
-  //     rawNonce: rawNonce,
-  //   );
-  //
-  //   return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
-  //       .user!;
-  // }
+// Future<User> signInWithApple() async {
+//   // To prevent replay attacks with the credential returned from Apple, we
+//   // include a nonce in the credential request. When signing in with
+//   // Firebase, the nonce in the id token returned by Apple, is expected to
+//   // match the sha256 hash of `rawNonce`.
+//   final rawNonce = generateNonce();
+//   final nonce = sha256ofString(rawNonce);
+//
+//   // Request credential for the currently signed in Apple account.
+//   final appleCredential = await SignInWithApple.getAppleIDCredential(
+//     scopes: [
+//       AppleIDAuthorizationScopes.email,
+//       AppleIDAuthorizationScopes.fullName,
+//     ],
+//     nonce: nonce,
+//   );
+//
+//   // Create an `OAuthCredential` from the credential returned by Apple.
+//   final oauthCredential = OAuthProvider("apple.com").credential(
+//     idToken: appleCredential.identityToken,
+//     rawNonce: rawNonce,
+//   );
+//
+//   return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
+//       .user!;
+// }
 }

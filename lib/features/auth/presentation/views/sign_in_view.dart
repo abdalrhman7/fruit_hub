@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/core/services/get_it_service.dart';
 import 'package:fruit/core/widgets/custom_app_bar.dart';
 import 'package:fruit/features/auth/presentation/cubits/signin_cubit/sign_in_cubit.dart';
-import 'package:fruit/features/auth/presentation/widgets/login_view_body.dart';
+import 'package:fruit/features/auth/presentation/widgets/sign_in_view_body.dart';
 import 'package:fruit/features/auth/presentation/widgets/sign_in_view_body_bloc_consumer.dart';
 
 import '../../domin/repos/auth_repo.dart';
