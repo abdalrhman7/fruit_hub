@@ -8,4 +8,12 @@ class UserEntity {
     required this.email,
     required this.uid,
   });
+
+  Map<String, String> toMap() {
+    return {
+      'name': name,
+      'email': email,
+      'uid': uid,
+    };
+  }
 }
