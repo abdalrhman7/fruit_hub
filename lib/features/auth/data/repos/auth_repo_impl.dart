@@ -15,7 +15,8 @@ class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
   final DatabaseService databaseService;
 
-  AuthRepoImpl({required this.firebaseAuthService , required this.databaseService});
+  AuthRepoImpl(
+      {required this.firebaseAuthService, required this.databaseService});
 
   @override
   Future<Either<Failures, UserEntity>> createUserWithEmailAndPassword({
@@ -25,12 +26,12 @@ class AuthRepoImpl extends AuthRepo {
   }) async {
     User? user;
     try {
-       user = await firebaseAuthService.createUserWithEmailAndPassword(
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       var userEntity = UserEntity(name: name, email: email, uid: user.uid);
-     await addUserData(user: userEntity);
+      await addUserData(user: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -43,7 +44,7 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   Future<void> deleteUser(User? user) async {
-     if (user != null) {
+    if (user != null) {
       await firebaseAuthService.deleteUser();
     }
   }
@@ -54,7 +55,8 @@ class AuthRepoImpl extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
-      return Right(UserModel.fromFirebaseUser(user));
+      var userEntity = await getUserData(uid: user.uid);
+      return Right(userEntity);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e) {
@@ -64,10 +66,10 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failures, UserEntity>> signInWithGoogle() async{
+  Future<Either<Failures, UserEntity>> signInWithGoogle() async {
     User? user;
     try {
-       user = await firebaseAuthService.signInWithGoogle();
+      user = await firebaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFirebaseUser(user);
       await addUserData(user: userEntity);
       return Right(UserModel.fromFirebaseUser(user));
@@ -79,10 +81,10 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failures, UserEntity>> signInWithFacebook()async {
+  Future<Either<Failures, UserEntity>> signInWithFacebook() async {
     User? user;
     try {
-       user = await firebaseAuthService.signInWithFacebook();
+      user = await firebaseAuthService.signInWithFacebook();
       var userEntity = UserModel.fromFirebaseUser(user);
       await addUserData(user: userEntity);
       return Right(UserModel.fromFirebaseUser(user));
@@ -94,11 +96,18 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future addUserData({required UserEntity user})async {
-    await databaseService.addData(path: BackendEndpoint.addUserData, data: user.toMap());
+  Future addUserData({required UserEntity user}) async {
+    await databaseService.addData(
+      path: BackendEndpoint.addUserData,
+      data: user.toMap(),
+      documentId: user.uid,
+    );
   }
 
-
-
-
+  @override
+  Future<UserEntity> getUserData({required String uid}) async {
+    var userData = await databaseService.getData(
+        path: BackendEndpoint.getUserData, documentId: uid);
+    return UserModel.fromJson(userData);
+  }
 }
