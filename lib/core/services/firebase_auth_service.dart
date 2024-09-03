@@ -5,6 +5,17 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class FirebaseAuthService {
+
+  Future deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
+
+    // try {
+    //   await FirebaseAuth.instance.currentUser!.delete();
+    // } on FirebaseAuthException catch (e) {
+    //   log("Exception in FirebaseAuthService.deleteUser: ${e.toString()} and code is ${e.code}");
+    // }
+  }
+
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {

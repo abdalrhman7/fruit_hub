@@ -12,11 +12,11 @@ class UserModel extends UserEntity{
     );
   }
 
-  copyWith({String? name, String? email, String? uid}) {
-    return UserModel(
-      name: name ?? this.name,
-      email: email ?? this.email,
-      uid: uid ?? this.uid,
-    );
-  }
+  // copyWith({String? name, String? email, String? uid}) {
+  //   return UserModel(
+  //     name: name ?? this.name,
+  //     email: email ?? this.email,
+  //     uid: uid ?? this.uid,
+  //   );
+  // }
 }
