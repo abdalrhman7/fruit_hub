@@ -52,5 +52,9 @@ class Assets {
   /// Assets for imagesVector
   /// assets/images/Vector.svg
   static const String imagesVector = "assets/images/Vector.svg";
+
+  static const String imagesProfileImage = "assets/images/profile.png";
+
+  static const String imagesNotification = "assets/images/notification.svg";
 }
 
