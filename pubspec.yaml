@@ -42,6 +42,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/bold/
+    - assets/images/outline/
 
   fonts:
     - family: 'Cairo'

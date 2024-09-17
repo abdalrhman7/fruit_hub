@@ -60,5 +60,21 @@ class Assets {
   static const String watermelone = "assets/images/watermelone.png";
 
   static const String featuredItemBackground = "assets/images/featured_item_background.svg";
+
+  static const String imagesSearchIcon = "assets/images/search_icon.svg";
+
+
+  static const String imagesBoldHome = "assets/images/bold/home.svg";
+  static const String imagesOutlineHome = "assets/images/outline/home.svg";
+
+  static const String imagesBoldProducts = "assets/images/bold/products.svg";
+  static const String imagesOutlineProducts = "assets/images/outline/products.svg";
+
+  static const String imagesBoldShoppingCart = "assets/images/bold/shopping-cart.svg";
+  static const String imagesOutlineShoppingCart = "assets/images/outline/shopping-cart.svg";
+
+  static const String imagesBoldUser = "assets/images/bold/user.svg";
+  static const String imagesOutlineUser = "assets/images/outline/user.svg";
+
 }
 
