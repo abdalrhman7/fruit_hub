@@ -56,5 +56,9 @@ class Assets {
   static const String imagesProfileImage = "assets/images/profile.png";
 
   static const String imagesNotification = "assets/images/notification.svg";
+
+  static const String watermelone = "assets/images/watermelone.png";
+
+  static const String featuredItemBackground = "assets/images/featured_item_background.svg";
 }
 
