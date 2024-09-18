@@ -8,35 +8,39 @@ class ActiveItem extends StatelessWidget {
   const ActiveItem({super.key, required this.text, required this.image});
 
   final String text;
-  final String image; 
+  final String image;
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 2000),
+        curve: Curves.linear,
         padding: const EdgeInsets.only(left: 16),
-        decoration:  ShapeDecoration(
-          color: const Color(0xFFEEEEEE),
-          shape :RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          )
-        ),
+        decoration: ShapeDecoration(
+            color: const Color(0xFFEEEEEE),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            )),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               width: 30,
               height: 30,
-              decoration:  ShapeDecoration(
+              decoration: ShapeDecoration(
                   color: AppColors.primaryColor,
-                  shape :RoundedRectangleBorder(
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                  )
-              ),
+                  )),
               child: Center(child: SvgPicture.asset(image)),
             ),
             const SizedBox(width: 4),
-            Text(text,style: TextStyles.semiBold13.copyWith(color: AppColors.primaryColor),)
-
+            Text(
+              text,
+              style:
+                  TextStyles.semiBold13.copyWith(color: AppColors.primaryColor),
+            )
           ],
         ),
       ),
