@@ -20,6 +20,14 @@ class UserModel extends UserEntity{
     );
   }
 
+  factory UserModel.fromEntity(UserEntity user) {
+    return UserModel(
+      name: user.name,
+      email: user.email,
+      uid: user.uid,
+    );
+  }
+
   // copyWith({String? name, String? email, String? uid}) {
   //   return UserModel(
   //     name: name ?? this.name,

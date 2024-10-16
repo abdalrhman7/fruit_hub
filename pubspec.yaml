@@ -30,6 +30,7 @@ dependencies:
   google_sign_in: ^6.2.1
   flutter_facebook_auth: ^3.5.0
   flutter_svg_provider: ^1.0.7
+  firebase_storage: ^12.3.3
 
 dev_dependencies:
   flutter_test:
