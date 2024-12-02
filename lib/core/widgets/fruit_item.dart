@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fruit/core/entities/product_entity.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.products});
+
+  final ProductEntity products;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +34,17 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Image.asset(
-                  Assets.watermelone,
+                Flexible(
+                  child: Image.network(
+                    products.imageUrl ??'',
+                  ),
                 ),
                 const SizedBox(
                   height: 24,
                 ),
                 ListTile(
-                  title: const Text(
-                    'بطيخ',
+                  title:  Text(
+                    products.name,
                     textAlign: TextAlign.right,
                     style: TextStyles.semiBold16,
                   ),
@@ -47,7 +52,7 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '30جنية ',
+                          text: 'جنيه ${products.price}',
                           style: TextStyles.bold13.copyWith(
                             color: AppColors.secondaryColor,
                           ),
@@ -65,7 +70,7 @@ class FruitItem extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: 'الكيلو',
+                          text: 'كيلو',
                           style: TextStyles.semiBold13.copyWith(
                             color: AppColors.lightSecondaryColor,
                           ),

@@ -31,6 +31,7 @@ dependencies:
   flutter_facebook_auth: ^3.5.0
   flutter_svg_provider: ^1.0.7
   firebase_storage: ^12.3.3
+  skeletonizer: ^1.4.2
 
 dev_dependencies:
   flutter_test:

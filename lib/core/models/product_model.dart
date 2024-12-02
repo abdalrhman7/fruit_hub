@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fruit/core/entities/product_entity.dart';
+import 'package:fruit/core/entities/review_entity.dart';
 import 'package:fruit/core/models/review_model.dart';
 
 class ProductModel {
@@ -8,7 +9,6 @@ class ProductModel {
   final String code;
   final String description;
   final num price;
-  final File image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationsMonths;
@@ -16,14 +16,15 @@ class ProductModel {
   final int numberOfCalories;
   final int unitAmount;
   final List<ReviewModel> reviews;
- // final num sellingCount;
+  final num? avgRating;
+
+  // final num sellingCount;
 
   ProductModel({
     required this.name,
     required this.code,
     required this.description,
     required this.price,
-    required this.image,
     required this.isFeatured,
     this.imageUrl,
     required this.expirationsMonths,
@@ -31,7 +32,8 @@ class ProductModel {
     required this.numberOfCalories,
     required this.unitAmount,
     required this.reviews,
-   // required this.sellingCount,
+    required this.avgRating,
+    // required this.sellingCount,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
@@ -40,15 +42,18 @@ class ProductModel {
       code: json['code'],
       description: json['description'],
       price: json['price'],
-      image: File(json['imageUrl']),
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
       expirationsMonths: json['expirationsMonths'],
       isOrganic: json['isOrganic'],
       numberOfCalories: json['numberOfCalories'],
       unitAmount: json['unitAmount'],
-      reviews: (json['reviews'] as List).map((e) => ReviewModel.fromJson(e)).toList(),
-    //  sellingCount: json['sellingCount'],
+      reviews: (json['reviews'] as List)
+          .map((e) => ReviewModel.fromJson(e))
+          .toList(),
+      avgRating: 5,
+      //avgRating: getAvgRating(json['reviews']),
+      //  sellingCount: json['sellingCount'],
     );
   }
 
@@ -58,7 +63,6 @@ class ProductModel {
       code: code,
       description: description,
       price: price,
-      image: image,
       isFeatured: isFeatured,
       imageUrl: imageUrl,
       expirationsMonths: expirationsMonths,
@@ -84,4 +88,13 @@ class ProductModel {
       'reviews': reviews.map((e) => e.toJson()).toList(),
     };
   }
+}
+
+num getAvgRating(List<ReviewEntity> reviews) {
+  if (reviews.isEmpty) return 0.0;
+  var totalRating = 0.0;
+  for (var review in reviews) {
+    totalRating += review.rating;
+  }
+  return totalRating / reviews.length;
 }
