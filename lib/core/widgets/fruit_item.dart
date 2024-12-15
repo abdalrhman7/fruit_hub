@@ -3,7 +3,7 @@ import 'package:fruit/core/entities/product_entity.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
-
+import 'package:fruit/core/widgets/custom_network_image.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.products});
@@ -34,16 +34,20 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Flexible(
-                  child: Image.network(
-                    products.imageUrl ??'',
-                  ),
-                ),
+                products.imageUrl != null
+                    ? Flexible(
+                        child: CustomNetworkImage(imageUrl: products.imageUrl!),
+                      )
+                    : Container(
+                        color: Colors.grey,
+                        height: 100,
+                        width: 100,
+                      ),
                 const SizedBox(
                   height: 24,
                 ),
                 ListTile(
-                  title:  Text(
+                  title: Text(
                     products.name,
                     textAlign: TextAlign.right,
                     style: TextStyles.semiBold16,
@@ -95,3 +99,5 @@ class FruitItem extends StatelessWidget {
     );
   }
 }
+
+

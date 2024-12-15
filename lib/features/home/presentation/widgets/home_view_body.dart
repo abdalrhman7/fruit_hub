@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
-import 'package:fruit/core/cubits/products_cubit.dart';
-import 'package:fruit/core/widgets/custom_error_widget.dart';
 import 'package:fruit/core/widgets/search_text_faild.dart';
-import 'package:fruit/features/home/presentation/widgets/best_selling_grid_view.dart';
 import 'package:fruit/features/home/presentation/widgets/best_selling_header.dart';
 import 'package:fruit/features/home/presentation/widgets/featured_list.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../core/helper_functions/get_dummy_product.dart';
-import 'best_selling_grid_view_bloc_builder_state.dart';
+import 'product_grid_view_bloc_builder_state.dart';
 import 'custom_home_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -40,7 +33,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-           BestSellingGridViewBlocBuilder(),
+           ProductsGridViewBlocBuilder(),
         ],
       ),
     );

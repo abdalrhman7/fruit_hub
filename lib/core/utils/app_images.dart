@@ -75,6 +75,8 @@ class Assets {
 
   static const String imagesBoldUser = "assets/images/bold/user.svg";
   static const String imagesOutlineUser = "assets/images/outline/user.svg";
+  static const String imageFilter1 = "assets/images/filter.svg";
+  static const String imageFilter2 = "assets/images/filter2.svg";
 
 }
 

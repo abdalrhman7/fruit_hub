@@ -6,8 +6,8 @@ import 'package:fruit/core/widgets/custom_error_widget.dart';
 import 'package:fruit/features/home/presentation/widgets/best_selling_grid_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class BestSellingGridViewBlocBuilder extends StatelessWidget {
-  const BestSellingGridViewBlocBuilder({
+class ProductsGridViewBlocBuilder extends StatelessWidget {
+  const ProductsGridViewBlocBuilder({
     super.key,
   });
 
