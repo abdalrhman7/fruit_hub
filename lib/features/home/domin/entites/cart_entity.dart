@@ -24,7 +24,7 @@ class CartEntity {
     return totalPrice;
   }
 
-  bool isExis(ProductEntity product) {
+  bool isExist(ProductEntity product) {
     for (var carItem in cartItems) {
       if (carItem.productEntity == product) {
         return true;

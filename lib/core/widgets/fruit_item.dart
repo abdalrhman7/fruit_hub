@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/core/entities/product_entity.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/core/widgets/custom_network_image.dart';
+import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
+import 'package:fruit/features/home/presentation/cart_cubit/cart_cubit.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key, required this.products});
+  const FruitItem({super.key, required this.productEntity});
 
-  final ProductEntity products;
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +37,9 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                products.imageUrl != null
+                productEntity.imageUrl != null
                     ? Flexible(
-                        child: CustomNetworkImage(imageUrl: products.imageUrl!),
+                        child: CustomNetworkImage(imageUrl: productEntity.imageUrl!),
                       )
                     : Container(
                         color: Colors.grey,
@@ -48,7 +51,7 @@ class FruitItem extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
-                    products.name,
+                    productEntity.name,
                     textAlign: TextAlign.right,
                     style: TextStyles.semiBold16,
                   ),
@@ -56,7 +59,7 @@ class FruitItem extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'جنيه ${products.price}',
+                          text: 'جنيه ${productEntity.price}',
                           style: TextStyles.bold13.copyWith(
                             color: AppColors.secondaryColor,
                           ),
@@ -83,11 +86,16 @@ class FruitItem extends StatelessWidget {
                     ),
                     textAlign: TextAlign.right,
                   ),
-                  trailing: const CircleAvatar(
-                    backgroundColor: AppColors.primaryColor,
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
+                  trailing:  GestureDetector(
+                    onTap: () {
+                      context.read<CartCubit>().addProduct(productEntity);
+                    },
+                    child: const CircleAvatar(
+                      backgroundColor: AppColors.primaryColor,
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

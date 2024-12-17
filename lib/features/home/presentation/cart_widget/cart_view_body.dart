@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
+import 'package:fruit/core/cubits/products_cubit.dart';
 import 'package:fruit/core/widgets/build_app_bar.dart';
 import 'package:fruit/core/widgets/custom_button.dart';
+import 'package:fruit/features/home/presentation/cart_cubit/cart_cubit.dart';
 import 'package:fruit/features/home/presentation/cart_widget/cart_header.dart';
 
 import 'cart_item.dart';
@@ -27,9 +30,9 @@ class CartViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(child: CustomDivider()),
-            const CartItemsList(),
-            const SliverToBoxAdapter(child: CustomDivider()),
+             SliverToBoxAdapter(child: context.read<CartCubit>().cartEntity.cartItems.isEmpty ? const Center(child: Text('لا يوجد منتجات في السله')) : const CustomDivider()),
+            const CartItemsList(cartItems: []),
+            SliverToBoxAdapter(child: context.read<CartCubit>().cartEntity.cartItems.isEmpty ? const SizedBox.shrink() : const CustomDivider()),
           ],
         ),
         Positioned(

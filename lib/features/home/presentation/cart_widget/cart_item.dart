@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/core/widgets/custom_network_image.dart';
+import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
 import 'package:fruit/features/home/presentation/cart_widget/cart_item_action_button.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +21,8 @@ class CartItem extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color(0xFFF3F5F7),
             ),
-            child: const CustomNetworkImage(
-                imageUrl:
-                    'https://firebasestorage.googleapis.com/v0/b/fruit-hub-aadc8.appspot.com/o/images%2F1000000033.jpg..jpg?alt=media&token=c98acb86-a45b-4804-8620-7215968e4d2d'),
+            child: CustomNetworkImage(
+                imageUrl: cartItemEntity.productEntity.imageUrl!),
           ),
           const SizedBox(width: 17),
           Expanded(
@@ -30,7 +32,8 @@ class CartItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text('بطيخ', style: TextStyles.bold13),
+                    Text(cartItemEntity.productEntity.name,
+                        style: TextStyles.bold13),
                     const Spacer(),
                     GestureDetector(
                       onTap: () {},
@@ -42,7 +45,7 @@ class CartItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '3 كم',
+                  '${cartItemEntity.calculateTotalWeight()} كم',
                   style: TextStyles.regular13
                       .copyWith(color: AppColors.secondaryColor),
                 ),
@@ -51,7 +54,7 @@ class CartItem extends StatelessWidget {
                     const CartItemActionButtons(),
                     const Spacer(),
                     Text(
-                      '60 جنية',
+                      '${cartItemEntity.calculateTotalPrice}  جنية',
                       style: TextStyles.bold16.copyWith(
                         color: AppColors.secondaryColor,
                       ),
