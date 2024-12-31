@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/core/cubits/products_cubit.dart';
 import 'package:fruit/core/repos/product_repo/product_repo.dart';
 import 'package:fruit/core/services/get_it_service.dart';
-import 'package:fruit/features/home/presentation/widgets/products_view_body.dart';
+import 'package:fruit/features/home/presentation/widgets/main_view_widgets/products_view_body.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});

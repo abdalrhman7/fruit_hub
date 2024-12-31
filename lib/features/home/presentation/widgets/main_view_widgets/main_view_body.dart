@@ -4,6 +4,7 @@ import 'package:fruit/features/home/presentation/views/product_view.dart';
 
 import 'home_view.dart';
 
+
 class MainViewBody extends StatelessWidget {
   const MainViewBody({
     super.key,

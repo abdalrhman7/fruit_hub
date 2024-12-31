@@ -33,7 +33,7 @@ class CartEntity {
     return false;
   }
 
-  CartItemEntity getCarItem(ProductEntity product) {
+  CartItemEntity getCarItemOrCartItemEntity(ProductEntity product) {
     for (var carItem in cartItems) {
       if (carItem.productEntity == product) {
         return carItem;

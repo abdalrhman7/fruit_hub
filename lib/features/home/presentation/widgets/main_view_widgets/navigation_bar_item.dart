@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit/features/home/domin/entites/bottom_navigation_bar_entity.dart';
-import 'package:fruit/features/home/presentation/widgets/active_item.dart';
-import 'package:fruit/features/home/presentation/widgets/in_active_item.dart';
+import 'package:fruit/features/home/presentation/widgets/main_view_widgets/active_item.dart';
+
+import 'in_active_item.dart';
 
 class NavigationBarItem extends StatelessWidget {
   const NavigationBarItem({

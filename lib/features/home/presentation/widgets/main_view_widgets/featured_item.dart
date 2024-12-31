@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
-import 'package:fruit/features/home/presentation/widgets/featured_item_button.dart';
+import 'package:fruit/features/home/presentation/widgets/main_view_widgets/featured_item_button.dart';
 import 'package:svg_flutter/svg.dart';
 
 class FeaturedItem extends StatelessWidget {

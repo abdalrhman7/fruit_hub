@@ -1,15 +1,9 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
-import 'package:fruit/core/cubits/products_cubit.dart';
 import 'package:fruit/core/widgets/build_app_bar.dart';
 import 'package:fruit/core/widgets/search_text_faild.dart';
-import 'package:fruit/features/home/presentation/widgets/product_grid_view_bloc_builder_state.dart';
-import 'package:fruit/features/home/presentation/widgets/best_selling_header.dart';
-import 'package:fruit/features/home/presentation/widgets/custom_home_app_bar.dart';
-import 'package:fruit/features/home/presentation/widgets/product_view_header.dart';
+import 'package:fruit/features/home/presentation/widgets/main_view_widgets/product_grid_view_bloc_builder_state.dart';
+import 'package:fruit/features/home/presentation/widgets/main_view_widgets/product_view_header.dart';
 
 class ProductsViewBody extends StatelessWidget {
   const ProductsViewBody({

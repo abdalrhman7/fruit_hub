@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
-import 'package:fruit/features/home/presentation/cart_widget/cart_item.dart';
+
+import 'cart_item.dart';
 
 class CartItemsList extends StatelessWidget {
   const CartItemsList({super.key, required this.cartItems});
