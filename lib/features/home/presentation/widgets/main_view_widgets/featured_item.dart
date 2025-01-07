@@ -20,7 +20,7 @@ class FeaturedItem extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                left: 0,
+                  left: 0,
                   bottom: 0,
                   top: 0,
                   right: itemWidth * 0.4 ,
@@ -29,8 +29,8 @@ class FeaturedItem extends StatelessWidget {
                 width: itemWidth * 0.5,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: svg.Svg(Assets.featuredItemBackground),
-                    fit: BoxFit.fill
+                      image: svg.Svg(Assets.featuredItemBackground),
+                      fit: BoxFit.fill
                   ),
                 ),
                 child: Padding(
@@ -62,3 +62,4 @@ class FeaturedItem extends StatelessWidget {
     );
   }
 }
+

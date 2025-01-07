@@ -30,15 +30,20 @@ class CartViewBody extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-                child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
-                    ? const Center(child: Text('لا يوجد منتجات في السله'))
-                    : const CustomDivider()),
+              child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
+                  ? const Center(
+                      child: Text('لا يوجد منتجات في السله'),
+                    )
+                  : const CustomDivider(),
+            ),
             CartItemsList(
-                cartItems: context.watch<CartCubit>().cartEntity.cartItems),
+              cartItems: context.watch<CartCubit>().cartEntity.cartItems,
+            ),
             SliverToBoxAdapter(
-                child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
-                    ? const SizedBox.shrink()
-                    : const CustomDivider()),
+              child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
+                  ? const SizedBox.shrink()
+                  : const CustomDivider(),
+            ),
           ],
         ),
         Positioned(
@@ -52,5 +57,3 @@ class CartViewBody extends StatelessWidget {
     );
   }
 }
-
-
