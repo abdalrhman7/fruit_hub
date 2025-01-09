@@ -37,6 +37,7 @@ class CartViewBody extends StatelessWidget {
                   : const CustomDivider(),
             ),
             CartItemsList(
+              //watch search for nearest build method and rebuild it
               cartItems: context.watch<CartCubit>().cartEntity.cartItems,
             ),
             SliverToBoxAdapter(
@@ -50,7 +51,6 @@ class CartViewBody extends StatelessWidget {
           bottom: MediaQuery.sizeOf(context).height * 0.07,
           left: 16,
           right: 16,
-          //watch search for nearest build method and rebuild it
           child: const CustomCartButton(),
         )
       ],

@@ -1,5 +1,3 @@
-
-
 class ShippingAddressEntity {
   String? name;
   String? phone;

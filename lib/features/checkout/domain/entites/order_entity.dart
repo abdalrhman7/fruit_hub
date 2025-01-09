@@ -3,17 +3,18 @@ import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
 import 'package:fruit/features/home/domin/entites/cart_entity.dart';
 
 class OrderEntity {
-  final String uID;
+ // final String uID;
   final CartEntity cartEntity;
-  List<CartItemEntity> cartItems ;
+ // List<CartItemEntity> cartItems ;
   bool? payWithCash;
-  ShippingAddressEntity shippingAddressEntity;
+  ShippingAddressEntity? shippingAddressEntity = ShippingAddressEntity();
   OrderEntity(
-      this.cartEntity, {
+      this.cartEntity,
+      {
         this.payWithCash,
-        required this.shippingAddressEntity,
-        required this.uID,
-        required this.cartItems
+         this.shippingAddressEntity,
+        //required this.uID,
+       // required this.cartItems
       });
 
   double calculateShippingCost() {
@@ -28,19 +29,19 @@ class OrderEntity {
     return 0;
   }
 
-  double calculateTotalPriceAfterDiscountAndShipping() {
-    return cartEntity.calculateTotalPrice() +
-        calculateShippingCost() -
-        calcualteShippingDiscount();
-  }
+  // double calculateTotalPriceAfterDiscountAndShipping() {
+  //   return cartEntity.calculateTotalPrice() +
+  //       calculateShippingCost() -
+  //       calcualteShippingDiscount();
+  // }
 
 
-  @override
-  String toString() {
-
-    return 'OrderEntity{uID: $uID, cartEntity: $cartEntity, payWithCash: $payWithCash, shippingAddressEntity: $shippingAddressEntity}';
-
-  }
+  // @override
+  // String toString() {
+  //
+  //   return 'OrderEntity{uID: $uID, cartEntity: $cartEntity, payWithCash: $payWithCash, shippingAddressEntity: $shippingAddressEntity}';
+  //
+  // }
 
 }
 

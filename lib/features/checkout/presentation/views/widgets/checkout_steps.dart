@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruit/core/helper_functions/build_error_bar.dart';
+import 'package:fruit/features/checkout/domain/entites/order_entity.dart';
 import 'package:fruit/features/checkout/presentation/views/widgets/step_item.dart';
+import 'package:provider/provider.dart';
 import 'inactive_step_item.dart';
 
 class CheckoutSteps extends StatelessWidget {
@@ -7,6 +10,7 @@ class CheckoutSteps extends StatelessWidget {
 
   final int currentPageIndex;
   final PageController pageController;
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +21,13 @@ class CheckoutSteps extends StatelessWidget {
           return Expanded(
               child: GestureDetector(
             onTap: () {
-              pageController.animateToPage(index,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut);
+              if (context.read<OrderEntity>().payWithCash != null) {
+                pageController.animateToPage(index,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut);
+              }else{
+                showErrorBar(context, 'يجب عليك تحديد طريقة الدفع');
+              }
             },
             child: StepItem(
               isActive: index <= currentPageIndex,

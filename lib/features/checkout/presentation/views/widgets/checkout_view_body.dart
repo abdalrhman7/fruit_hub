@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fruit/core/helper_functions/build_error_bar.dart';
 import 'package:fruit/core/widgets/custom_button.dart';
+import 'package:fruit/core/widgets/fruit_item.dart';
+import 'package:fruit/features/checkout/domain/entites/order_entity.dart';
+import 'package:provider/provider.dart';
 import 'checkout_steps.dart';
 import 'checkout_steps_page_view.dart';
 
@@ -13,6 +17,7 @@ class CheckoutViewBody extends StatefulWidget {
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   PageController pageController = PageController(initialPage: 0);
   int currentPageIndex = 0;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -37,15 +42,22 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             pageController: pageController,
           ),
           Expanded(
-            child: CheckoutStepsPageView(pageController: pageController),
+            child: CheckoutStepsPageView(
+              pageController: pageController,
+              formKey: formKey,
+            ),
           ),
           CustomButton(
             onPressed: () {
-              pageController.animateToPage(
-                currentPageIndex + 1,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
+              if (context.read<OrderEntity>().payWithCash != null) {
+                pageController.animateToPage(
+                  currentPageIndex + 1,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              } else {
+                showErrorBar(context, 'يجب عليك تحديد طريقة الدفع');
+              }
             },
             text: getNextButtonText(),
           ),

@@ -4,6 +4,7 @@ import 'package:fruit/features/auth/presentation/views/signup_view.dart';
 import 'package:fruit/features/best_selling_fruits/views/best_selling_view.dart';
 import 'package:fruit/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
+import 'package:fruit/features/home/domin/entites/cart_entity.dart';
 import 'package:fruit/features/home/presentation/views/main_view.dart';
 import 'package:fruit/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruit/features/splash/presentation/views/splash_view.dart';
@@ -15,7 +16,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case CheckoutView.routeName:
       return MaterialPageRoute(
         builder: (context) => CheckoutView(
-          cartItems: settings.arguments as List<CartItemEntity>,
+          cartEntity: settings.arguments as CartEntity,
         ),
       );
     case SignInView.routeName:

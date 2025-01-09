@@ -19,13 +19,14 @@ class CustomCartButton extends StatelessWidget {
           onPressed: () {
             if (context.read<CartCubit>().cartEntity.cartItems.isNotEmpty) {
               Navigator.pushNamed(context, CheckoutView.routeName,
-                arguments: context.read<CartCubit>().cartEntity.cartItems,
+                arguments: context.read<CartCubit>().cartEntity,
               );
             }else{
               showErrorBar(context, 'لا يوجد منتجات في السله');
             }
           },
           text:
+          //watch search for nearest build method and rebuild it
               'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
         );
       },
