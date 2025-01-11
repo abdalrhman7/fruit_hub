@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fruit/core/widgets/fruit_item.dart';
 import 'package:fruit/features/checkout/domain/entites/order_entity.dart';
 import 'package:fruit/features/checkout/presentation/views/widgets/shipping_widgets/shipping_item.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +30,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
           isSelected: selectedIndex == 0,
           title: 'الدفع عند الاستلام',
           subtitle: 'تتم دفع الطلب عند استلامه من المتجر',
-          price: (orderEntity.cartEntity.calculateTotalPrice() + 40).toString(),
+          price: (orderEntity.cartEntity.calculateTotalPrice() + 30).toString(),
         ),
         const SizedBox(height:16),
         ShippingItem(

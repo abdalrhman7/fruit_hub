@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:fruit/core/entities/product_entity.dart';
 import 'package:fruit/core/entities/review_entity.dart';

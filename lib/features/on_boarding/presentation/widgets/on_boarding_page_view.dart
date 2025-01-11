@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruit/constants.dart';
-import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/core/utils/app_colors.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
-import 'package:fruit/core/widgets/custom_button.dart';
 import 'package:fruit/features/on_boarding/presentation/widgets/page_view_item.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 
 
 class OnBoardingPageView extends StatelessWidget {

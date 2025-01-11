@@ -6,7 +6,6 @@ import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/widgets/custom_button.dart';
 import 'package:fruit/core/widgets/password_field.dart';
 import 'package:fruit/features/auth/presentation/cubits/signin_cubit/sign_in_cubit.dart';
-import 'package:fruit/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:fruit/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:fruit/features/auth/presentation/widgets/social_login_button.dart';
 

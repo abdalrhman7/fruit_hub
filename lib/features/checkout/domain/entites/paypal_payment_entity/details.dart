@@ -1,4 +1,3 @@
-import 'package:fruit/features/checkout/domain/entites/order_entity.dart';
 
 class DetailsEntity {
   String? subtotal;

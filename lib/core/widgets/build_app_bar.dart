@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/core/widgets/notification_widget.dart';
-import 'package:fruit/features/best_selling_fruits/views/widgets/best_selling_view_nody.dart';
 
 AppBar buildAppBar(context, {required String title , bool showBackButton = true , bool showNotification = true}) {
   return AppBar(

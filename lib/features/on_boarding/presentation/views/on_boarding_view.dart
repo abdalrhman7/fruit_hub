@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit/features/on_boarding/presentation/widgets/on_boarding_view_body.dart';
 

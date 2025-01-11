@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/core/widgets/build_app_bar.dart';
-import 'package:fruit/core/widgets/notification_widget.dart';
 import 'package:fruit/features/best_selling_fruits/views/widgets/best_selling_view_nody.dart';
 
 class BestSellingView extends StatelessWidget {

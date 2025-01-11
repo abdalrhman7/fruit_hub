@@ -1,19 +1,18 @@
 import 'package:fruit/features/checkout/domain/entites/shipping_address_entity.dart';
-import 'package:fruit/features/home/domin/entites/car_item_entity.dart';
 import 'package:fruit/features/home/domin/entites/cart_entity.dart';
 
 class OrderEntity {
- // final String uID;
+ final String uID;
   final CartEntity cartEntity;
  // List<CartItemEntity> cartItems ;
   bool? payWithCash;
-  ShippingAddressEntity? shippingAddressEntity = ShippingAddressEntity();
+  ShippingAddressEntity shippingAddressEntity ;
   OrderEntity(
       this.cartEntity,
       {
         this.payWithCash,
-         this.shippingAddressEntity,
-        //required this.uID,
+        required this.shippingAddressEntity,
+        required this.uID,
        // required this.cartItems
       });
 

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/core/cubits/products_cubit.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
-import 'package:fruit/features/best_selling_fruits/views/best_selling_view.dart';
 import 'package:svg_flutter/svg.dart';
 
 class ProductViewHeader extends StatelessWidget {

@@ -6,7 +6,7 @@ ProductEntity getDummyProduct() {
     code: 'DUMMY001',
     description: 'This is a dummy product',
     price: 10.99,
-    reviews: [],
+    reviews: const [],
     expirationsMonths: 6,
     numberOfCalories: 100,
     unitAmount: 1,

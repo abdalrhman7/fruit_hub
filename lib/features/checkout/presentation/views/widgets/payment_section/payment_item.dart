@@ -13,7 +13,7 @@ class PaymentItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('ملخص الطلب :', style: TextStyles.semiBold13),
+         Text(title, style: TextStyles.semiBold13),
         const SizedBox(height: 8),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),

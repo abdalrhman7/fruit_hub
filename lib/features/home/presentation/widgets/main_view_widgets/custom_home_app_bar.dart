@@ -3,7 +3,6 @@ import 'package:fruit/core/helper_functions/get_user.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/core/widgets/notification_widget.dart';
-import 'package:svg_flutter/svg.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});

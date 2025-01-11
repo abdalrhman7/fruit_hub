@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit/constants.dart';
 import 'package:fruit/core/widgets/build_app_bar.dart';
-import 'package:fruit/core/widgets/custom_button.dart';
 import 'package:fruit/features/home/presentation/cubit/cart_cubit/cart_cubit.dart';
 
 import 'cart_header.dart';
