@@ -1,0 +1,5 @@
+
+
+const clientId = 'AXG9Wa3VtWwVBUupv3iyCNm8yI1qetfZkhvfy4oZGrMZL75ngSZfYXF3Ffsey_kuU1ysZdrYsl9NKf1f';
+
+const secretKey = 'EF6lxINyMOhl2JXU0tEUK8qoW2_8UjNMIPqW5hirEWPhrWdEA0aM8EpdJrzIs2w1K1xhf7W4pMkC5T2o';

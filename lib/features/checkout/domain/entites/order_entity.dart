@@ -28,19 +28,19 @@ class OrderEntity {
     return 0;
   }
 
-  // double calculateTotalPriceAfterDiscountAndShipping() {
-  //   return cartEntity.calculateTotalPrice() +
-  //       calculateShippingCost() -
-  //       calcualteShippingDiscount();
-  // }
+  double calculateTotalPriceAfterDiscountAndShipping() {
+    return cartEntity.calculateTotalPrice() +
+        calculateShippingCost() -
+        calcualteShippingDiscount();
+  }
 
 
-  // @override
-  // String toString() {
-  //
-  //   return 'OrderEntity{uID: $uID, cartEntity: $cartEntity, payWithCash: $payWithCash, shippingAddressEntity: $shippingAddressEntity}';
-  //
-  // }
+  @override
+  String toString() {
+
+    return 'OrderEntity{uID: $uID, cartEntity: $cartEntity, payWithCash: $payWithCash, shippingAddressEntity: $shippingAddressEntity}';
+
+  }
 
 }
 
