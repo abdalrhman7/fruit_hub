@@ -53,7 +53,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut);
               } else if (index == 1) {
-                var orderEntity = context.read<OrderEntity>();
+                var orderEntity = context.read<OrderInputEntity>();
                 if (orderEntity.payWithCash != null) {
                   pageController.animateToPage(index,
                       duration: const Duration(milliseconds: 300),
@@ -94,7 +94,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _handleShippingSectionVaildation(BuildContext context) {
-    if (context.read<OrderEntity>().payWithCash != null) {
+    if (context.read<OrderInputEntity>().payWithCash != null) {
       pageController.animateToPage(
         currentPageIndex + 1,
         duration: const Duration(milliseconds: 300),
@@ -132,7 +132,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _processPayment(BuildContext context) {
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     PaypalPaymentEntity paypalPaymentEntity =
         PaypalPaymentEntity.fromEntity(orderEntity);
     var addOrderCubit = context.read<AddOrderCubit>();

@@ -26,7 +26,7 @@ class OrderSummeryWidget extends StatelessWidget {
               ),
               const Spacer(),
                Text(
-                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice().floor()} جنيه',
+                '${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice().floor()} جنيه',
                 style: TextStyles.semiBold16,
               ),
             ],
@@ -60,7 +60,7 @@ class OrderSummeryWidget extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice().floor() + 30} جنيه',
+                '${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice().floor() + 30} جنيه',
                 style: TextStyles.bold16,
               ),
             ],

@@ -2,11 +2,13 @@
 
 import 'package:fruit/features/checkout/data/model/shipping_address_model.dart';
 import 'package:fruit/features/checkout/domain/entites/order_entity.dart';
+import 'package:uuid/uuid.dart';
 
 import 'order_product_model.dart';
 
 class OrderModel {
   final double totalPrice;
+  final String orderId;
   final String uId;
   final ShippingAddressModel shippingAddressModel;
   final List<OrderProductModel> orderProducts;
@@ -17,10 +19,13 @@ class OrderModel {
         required this.uId,
         required this.shippingAddressModel,
         required this.orderProducts,
-        required this.paymentMethod});
+        required this.paymentMethod,
+        required this.orderId,
+      });
 
-  factory OrderModel.fromEntity(OrderEntity orderEntity) {
+  factory OrderModel.fromEntity(OrderInputEntity orderEntity) {
     return OrderModel(
+      orderId: Uuid().v4(),
       totalPrice: orderEntity.cartEntity.calculateTotalPrice(),
       uId: orderEntity.uID,
       shippingAddressModel:
@@ -35,6 +40,7 @@ class OrderModel {
   }
   Map<String, dynamic> toJson() {
     return {
+    'orderId': orderId,
     'totalPrice': totalPrice,
     'uId': uId,
     'status': 'pending',

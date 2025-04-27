@@ -26,7 +26,7 @@ class ShippingAddressWidget extends StatelessWidget {
           ),
           Text(
             //toString of Shipping Address Entity
-            ' ${context.read<OrderEntity>().shippingAddressEntity.toString()}',
+            ' ${context.read<OrderInputEntity>().shippingAddressEntity.toString()}',
             textAlign: TextAlign.right,
             style: TextStyles.regular13.copyWith(
               color: const Color(0xFF4E5556),

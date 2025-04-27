@@ -15,7 +15,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var orderEntity = context.read<OrderEntity>();
+    var orderEntity = context.read<OrderInputEntity>();
     return   Column(
       children: [
         const SizedBox(height:33),
@@ -42,7 +42,7 @@ class _ShippingSectionState extends State<ShippingSection> with AutomaticKeepAli
           isSelected: selectedIndex == 1,
           title: 'الدفع اولاين',
           subtitle: 'يرجي تحديد طريقة الدفع',
-          price: context.read<OrderEntity>().cartEntity.calculateTotalPrice().toString(),
+          price: context.read<OrderInputEntity>().cartEntity.calculateTotalPrice().toString(),
         ),
       ],
     );
