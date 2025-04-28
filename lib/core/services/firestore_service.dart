@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 import 'data_service.dart';
 
 class FireStoreService implements DatabaseService {
@@ -20,32 +19,36 @@ class FireStoreService implements DatabaseService {
 
   @override
   Future<dynamic> getData(
-      {required String path,  String? documentId , Map<String, dynamic>?query} ) async {
+      {required String path,
+      String? documentId,
+      Map<String, dynamic>? query}) async {
     if (documentId != null) {
       var data = await firestore.collection(path).doc(documentId).get();
-      return data.data() ;
-    }else{
-      Query<Map<String, dynamic>> data =  firestore.collection(path);
-      if(query != null){
-        if(query['orderBy'] != null){
+      return data.data();
+    } else {
+      Query<Map<String, dynamic>> data = firestore.collection(path);
+      if (query != null) {
+        if (query['orderBy'] != null) {
           var orderByField = query['orderBy'];
           var descending = query['descending'];
-          data = data.orderBy(orderByField , descending: descending);
+          data = data.orderBy(orderByField, descending: descending);
         }
-        if(query['limit'] != null){
+        if (query['limit'] != null) {
           var limit = query['limit'];
           data = data.limit(limit);
         }
       }
       var result = await data.get();
-      return result.docs.map((e) =>  e.data()).toList() ;
+      return result.docs.map((e) => e.data()).toList();
     }
   }
 
   @override
   Future<bool> checkIfDataExists(
-      {required String path,  String? documentId}) async {
+      {required String path, String? documentId}) async {
     var data = await firestore.collection(path).doc(documentId).get();
     return data.exists;
   }
+
+
 }

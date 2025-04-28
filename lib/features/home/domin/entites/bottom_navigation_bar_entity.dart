@@ -28,9 +28,9 @@ List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
     inActiveImage: Assets.imagesOutlineShoppingCart,
     name: 'السلة',
   ),
-  BottomNavigationBarEntity(
-    activeImage: Assets.imagesBoldUser,
-    inActiveImage: Assets.imagesOutlineUser,
-    name: 'حسابي',
-  ),
+  // BottomNavigationBarEntity(
+  //   activeImage: Assets.imagesBoldUser,
+  //   inActiveImage: Assets.imagesOutlineUser,
+  //   name: 'حسابي',
+  // ),
 ];
