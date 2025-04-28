@@ -1,16 +1,44 @@
-# fruit
+🍓 Fruit Hub
+Fruit Hub is a Flutter e-commerce application where users can browse products, add them to the cart, and complete the checkout process, including address and personal information entry. Payment is processed via PayPal, and users can register/login using Google or Facebook accounts.
 
-A new Flutter project.
+✨ Features
+Browse a list of products.
 
-## Getting Started
+Add products to the cart.
 
-This project is a starting point for a Flutter application.
+Checkout by adding address and personal information.
 
-A few resources to get you started if this is your first Flutter project:
+Pay securely using PayPal integration.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+User authentication with Google and Facebook (via Firebase).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Manage user sessions securely.
+
+Responsive UI for mobile and tablet devices.
+
+🛠️ Technologies Used
+
+Cubit for State Management
+
+Clean Architecture for better project structure
+
+GetIt for Dependency Injection
+
+Dio for API communication
+
+Firebase Authentication for social login (Google, Facebook)
+
+PayPal SDK for payment integration
+
+🏛️ Architecture
+The app is structured based on Clean Architecture principles, dividing the project into clear layers:
+
+Presentation Layer (UI + Cubit)
+
+Domain Layer (Entity , Repositories)
+
+Data Layer (Repositories, Model)
+
+🔒 Secure Storage
+User tokens and sensitive data are handled securely using Firebase Authentication.
+
