@@ -1,4 +1,5 @@
 🍓 Fruit Hub
+
 Fruit Hub is a Flutter e-commerce application where users can browse products, add them to the cart, and complete the checkout process, including address and personal information entry. Payment is processed via PayPal, and users can register/login using Google or Facebook accounts.
 
 ✨ Features
